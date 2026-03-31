@@ -1,0 +1,35 @@
+/* 1. Posicionamiento del submenú */
+.dropdown-submenu {
+    position: relative;
+}
+
+/* 2. Hace que el submenú aparezca a la derecha del padre */
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+/* 3. Flecha indicadora para saber que hay más opciones */
+.dropdown-submenu > a::after {
+    display: inline-block;
+    content: "";
+    float: right;
+    border-top: 4px solid transparent;
+    border-left: 4px solid;
+    border-bottom: 4px solid transparent;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+/* 4. Mostrar submenú al pasar el mouse (solo en computadoras) */
+@media (min-width: 992px) {
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+}
+
+/* 5. Asegura que el menú esté por encima de la tabla scroll */
+.navbar {
+    z-index: 1050 !important;
+}

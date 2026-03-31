@@ -1,0 +1,151 @@
+<style>
+
+/* 1. Posicionamiento del submenú */
+.dropdown-submenu {
+    position: relative;
+}
+
+/* 2. Hace que el submenú aparezca a la derecha del padre */
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+/* 3. Flecha indicadora para saber que hay más opciones */
+.dropdown-submenu > a::after {
+    display: inline-block;
+    content: "";
+    float: right;
+    border-top: 4px solid transparent;
+    border-left: 4px solid;
+    border-bottom: 4px solid transparent;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+/* 4. Mostrar submenú al pasar el mouse (solo en computadoras) */
+@media (min-width: 992px) {
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+}
+
+/* 5. Asegura que el menú esté por encima de la tabla scroll */
+.navbar {
+    z-index: 1050 !important;
+}
+
+/* Esto activa el menú al pasar el mouse en computadoras */
+  @media (min-width: 992px) {
+    .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+    .dropdown-submenu:hover > .dropdown-menu {
+      display: block;
+    }
+  }
+  
+  /* Ajuste para que el submenú salga a la derecha y no abajo */
+  .dropdown-submenu { position: relative; }
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img src="../../Imagenen_Menu/LOGO AVICOLA SAN MARTIN.png" alt="Logo" style="width:160px;">
+  <a class="navbar-brand" href="#">AVICOLA SAN MARTIN S.A</a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto">
+
+      <!-- Producción -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="prodDropdown" role="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          Producción
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="prodDropdown">
+
+          <!-- Submenú Lotes -->
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Lotes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="form_diario.php">Diario</a></li>
+              <li><a class="dropdown-item" href="../Semanal/form_Sem-Prod.php">Semanal</a></li>
+              <li><a class="dropdown-item" href="#">Mensual</a></li>
+            </ul>
+          </li>
+
+          <li><a class="dropdown-item" href="#">Reportes</a></li>
+        </ul>
+      </li>
+
+      <!-- Planta de Alimentos -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="alimentosDropdown" role="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          Planta de Alimentos
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="alimentosDropdown">
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Lotes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Diario</a></li>
+              <li><a class="dropdown-item" href="#">Semana</a></li>
+              <li><a class="dropdown-item" href="#">Mensual</a></li>
+            </ul>
+          </li>
+          <li><a class="dropdown-item" href="#">Reportes</a></li>
+        </ul>
+      </li>
+
+      <!-- Clasificación -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="clasificacionDropdown" role="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+          Clasificación
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="clasificacionDropdown">
+          <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Lotes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Diario</a></li>
+              <li><a class="dropdown-item" href="#">Semana</a></li>
+              <li><a class="dropdown-item" href="#">Mensual</a></li>
+            </ul>
+          </li>
+          <li><a class="dropdown-item" href="#">Reportes</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function (e) {
+    document.querySelectorAll('.dropdown-submenu a.dropdown-toggle').forEach(function (element) {
+        element.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const submenu = this.nextElementSibling;
+            
+            // Cerrar otros submenús abiertos
+            this.closest('.dropdown-menu').querySelectorAll('.dropdown-menu').forEach(function(openSubmenu){
+                if(openSubmenu !== submenu) openSubmenu.classList.remove('show');
+            });
+
+            submenu.classList.toggle('show');
+        });
+    });
+});
+</script>
+</nav>
