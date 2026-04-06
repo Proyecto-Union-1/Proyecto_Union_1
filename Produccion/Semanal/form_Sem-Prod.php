@@ -30,6 +30,7 @@ include '../Nav.html';
       vertical-align: middle;
     }
 
+
     .tabla-scroll thead th {
   position: sticky;
   top: 0;
@@ -47,7 +48,7 @@ include '../Nav.html';
 <?php
 
 
-// 1. Obtener todos los lotes únicos
+// 1. Obtener todos los lotes únicos.
 $lotes = mysqli_query($mysqli, "SELECT DISTINCT lote FROM bd_vargas");
 
 // 2. Detectar si el usuario seleccionó un lote
