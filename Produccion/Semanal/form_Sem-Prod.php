@@ -47,7 +47,7 @@ include '../Nav.html';
 
 <?php
 
-
+////
 // 1. Obtener todos los lotes únicos.
 $lotes = mysqli_query($mysqli, "SELECT DISTINCT lote FROM bd_vargas");
 
