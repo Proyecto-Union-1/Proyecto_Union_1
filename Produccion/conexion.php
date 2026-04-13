@@ -7,7 +7,7 @@ $db   = 'data_vargas';
 
 $mysqli = new mysqli($host, $user, $pass, $db);
 
-// Verificar si hay errores de conexión - ...
+// Verificar si hay errores de conexión
 if ($mysqli->connect_errno) {
     die("Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
 }
