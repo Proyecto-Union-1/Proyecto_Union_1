@@ -1,0 +1,16 @@
+name: Despliegue Local XAMPP
+
+on:
+  push:
+    branches:
+      - main  # NOTA: Si tu rama principal se llama 'master', cámbialo aquí.
+
+jobs:
+  actualizar-servidor:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Descargar ultimos cambios a XAMPP
+        run: |
+          cd C:\xampp\htdocs\Proyecto_Union_1
+          git pull origin main
