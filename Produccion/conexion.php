@@ -1,8 +1,8 @@
 <?php
 // Configuración de conexión
 $host = 'localhost';
-$user = 'root';
-$pass = '';
+$user = 'SANPROD-SERVER';
+$pass = '4l3m4n14.2024.';
 $db   = 'data_vargas';
 
 $mysqli = new mysqli($host, $user, $pass, $db);
