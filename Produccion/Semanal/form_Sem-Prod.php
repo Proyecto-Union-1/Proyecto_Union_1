@@ -57,7 +57,9 @@ $loteSeleccionado = isset($_POST['lote']) ? $_POST['lote'] : '';
 // 3. Armar la consulta filtrada
 if ($loteSeleccionado != '') {
     $sql = "SELECT * FROM bd_vargas WHERE lote = '$loteSeleccionado'";
-} 
+} else {
+    $sql = "SELECT * FROM bd_vargas";
+}
 
 $consulta = mysqli_query($mysqli, $sql);
 ?>
